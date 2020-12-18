@@ -1,0 +1,25 @@
+## VS Code REST Client :: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+### GET the homepage
+GET http://localhost:3000/ HTTP/1.1
+
+### GET the number 10, badly
+GET http://localhost:3000/badmaths HTTP/1.1
+
+### GET the length of the ten array
+GET http://localhost:3000/maths HTTP/1.1
+
+### GET the number 10, weirdly
+GET http://localhost:3000/weirdmaths HTTP/1.1
+
+### GET an error for the wrong name, with params
+GET http://localhost:3000/grayspencer?address=localhost:3000/?address=londonbaby&username=me-a-mario HTTP/1.1
+
+### GET an external call from Go
+GET http://localhost:3000/external HTTP/1.1
+
+### GET an external call transaction, from Go
+GET http://localhost:3000/external/person HTTP/1.1
+
+### GET a number 10
+GET http://localhost:3000/gary/10 HTTP/1.1
