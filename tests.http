@@ -12,8 +12,8 @@ GET http://localhost:3000/maths HTTP/1.1
 ### GET the number 10, weirdly
 GET http://localhost:3000/weirdmaths HTTP/1.1
 
-### GET an error for the wrong name
-GET http://localhost:3000/grayspencer HTTP/1.1
+### GET an error for the wrong name, with params
+GET http://localhost:3000/grayspencer?address=localhost:3000/?address=londonbaby&username=me-a-mario HTTP/1.1
 
 ### GET an external call from Go
 GET http://localhost:3000/external HTTP/1.1
