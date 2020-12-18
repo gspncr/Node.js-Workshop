@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= message
+  h2= error.status
+  p Pardon the interruption!
+  pre #{error.stack}
+  img(src="/images/windows-error.jpg", alt="image of a windows XP error message", style="width:25%; height:25%")

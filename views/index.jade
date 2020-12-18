@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the #{title}
+  #container
+    h2 What is here?
+    p Some examples to take the New Relic Node agent for a spin! Particularly using the API
+    p You'll also notice a transaction starts at startup - not all txn's are web based.
+    p The first 3 links take awful approaches to generate the number ten. Compare the performance within New Relic and add custom attributes.
+    p The fourth link is my name, spelt incorrectly. Name this Transaction separately.
+    p Links 5 and 6 are to another service (Go) also instrumented with New Relic. Visualise the connections in service maps.
+    p The last link is generating a custom event and a custom error. Try changing the appending number.
+    h2 Links
+    ol#links
+      li
+        a(href="/badmaths") Generate number 10, badly
+        | : Keep generating random numbers until we get to the number 10.
+      li
+        a(href="/maths") Get 10, not ideally
+        | : Run a for loop until the counter is 1 less than 11.
+      li
+        a(href="/weirdmaths") Get 1 but 10 times
+        | : Define one as 1, add to an array ten times, fetch the length of said array.
+      li
+        a(href="/grayspencer") Fetch the wrong name
+        | : Get the wrong name.
+      li
+        a(href="/external") Call external service
+        | : Call out to the Go service.
+      li
+        a(href="/external/Person") Call external service with custom location
+        | : Call out to the Go service, with custom location.
+      li
+        a(href="/gary/33") Call to counter
+        | : Call to any custom integer.
+    img(src="/images/life-too-short.jpg", alt="Life is too short for bad software", style="width:25%; height:25%")
