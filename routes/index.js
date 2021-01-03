@@ -1,9 +1,11 @@
+const logger = require('../config/winston');
+
 const http = require('http'),
       path = require('path'),
       express = require('express'),
       newrelic = require('newrelic'),
       router = express.Router();
-
+/* Create a transaction on app startup. Serves no actual use. 🤷‍♂️ */
 function nothingUseful(){
   newrelic.startWebTransaction('aTest', () => {
       newrelic.setTransactionName("yes a test");
@@ -13,12 +15,22 @@ function nothingUseful(){
   });
 }
 
+/* Generate a greeting based on the time of day . */         
+function getGreeting(){
+  const hours = new Date().getHours()
+
+  const timeOfDay = hours < 12 && 'morning' || hours < 18 && 'afternoon' || 'evening'
+
+  return timeOfDay
+};
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   
   res.render(
     'index', { 
-      title: 'New Relic Node Workshop'
+      title: 'New Relic Node Workshop',
+      greeting: getGreeting()
       }
     );
 });
@@ -30,9 +42,7 @@ router.get('/badmaths', function (req, res) {
   let x = '';
   do {
     x = Math.floor(Math.random() * 111000); 
-    console.log(x);
   } while (x != 10);
-  console.log(x);
   res.send('{"x": "'+ x + '"}\n');
 });
 
@@ -56,7 +66,6 @@ router.get('/maths', function (req, res) {
 router.get('/weirdmaths', function (req, res) {
   one = 1;
   let x = [one, one, one, one, one, one, one, one, one, one ];
-  console.log(x.length);
   res.send('{"x": "'+ x.length + '"}\n');
 });
 
@@ -97,7 +106,6 @@ router.get('/external', function (req, res) {
     
       rs.on("end", function () {
         const body = Buffer.concat(chunks);
-        console.log(body.toString());
         res.send(body.toString());
       });
     });
@@ -127,7 +135,6 @@ router.get('/external/:custom', function (req, res) {
     
       rs.on("end", function () {
         const body = Buffer.concat(chunks);
-        console.log(body.toString());
         res.send(body.toString());
       });
     });
@@ -138,6 +145,7 @@ router.get('/external/:custom', function (req, res) {
 
 router.get('/gary/:id', function (req, res) {
   newrelic.addCustomAttribute('error', req.params.id);
+  logger.info('test');
   const attributes = {
       newrelic: 'implies existance of old relic',
       hello: 'world',

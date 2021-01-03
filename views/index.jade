@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  p Welcome to the #{title}
+  p Good #{greeting}, welcome to the #{title}
   #container
-    h2 What is here?
-    p Some examples to take the New Relic Node agent for a spin! Particularly using the API
+    h2 What is here?   
+    p Some examples to take the New Relic Node agent for a spin! Particularly using the #[a(href="https://newrelic.github.io/node-newrelic/docs/") API]
     p You'll also notice a transaction starts at startup - not all txn's are web based.
     p The first 3 links take awful approaches to generate the number ten. Compare the performance within New Relic and add custom attributes.
     p The fourth link is my name, spelt incorrectly. Name this Transaction separately.

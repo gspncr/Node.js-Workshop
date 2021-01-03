@@ -6,6 +6,8 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@newrelic/winston-enricher": "^1.0.0",
+    "app-root-path": "~3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -14,6 +16,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "newrelic": "^7.0.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "winston": "^3.3.3"
   }
 }
