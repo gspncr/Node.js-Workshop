@@ -145,7 +145,6 @@ router.get('/external/:custom', function (req, res) {
 
 router.get('/gary/:id', function (req, res) {
   newrelic.addCustomAttribute('error', req.params.id);
-  logger.info('test');
   const attributes = {
       newrelic: 'implies existance of old relic',
       hello: 'world',
