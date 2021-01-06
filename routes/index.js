@@ -9,7 +9,7 @@ const http = require('http'),
 function nothingUseful(){
   newrelic.startWebTransaction('aTest', () => {
       newrelic.setTransactionName("yes a test");
-      console.log("not sure");
+      console.log("Application started. Custom NR Transaction fired.");
       newrelic.addCustomAttribute("any","thing");
       newrelic.endTransaction();
   });
