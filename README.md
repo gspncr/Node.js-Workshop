@@ -4,7 +4,7 @@
 
 `npm install`
 
-*Edit* copy **newrelic.template.js** to **newrelic.js** and include your app name and license key, and other meta config.
+*Copy* file **newrelic.template.js** to **newrelic.js** and *edit this* to include your app name and license key, and other optional meta config.
 
 `npm start`
 
